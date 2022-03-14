@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace ApiCountriesV7.Models
 {
-    public class Subdivision
+    public class UserModel
     {
         public int Id { get; set; }
-        [Required(ErrorMessage = "Name cannot be empty")]
-        public string Name { get; set; }
-        public string Code { get; set; }
-        public int CountryId { get; set; }
+        [Required(ErrorMessage = "Email is required")]
+        public string Email { get; set; }
+        [Required(ErrorMessage = "Password is required")]
+        public string Password { get; set; }
     }
 }
