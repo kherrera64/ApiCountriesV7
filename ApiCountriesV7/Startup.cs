@@ -1,7 +1,9 @@
+using ApiCountriesV7.Data;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -32,6 +34,8 @@ namespace ApiCountriesV7
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "ApiCountriesV7", Version = "v1" });
             });
+
+            services.AddDbContext<ApiDbContext>(option => option.UseSqlServer(@"Data Source=DESKTOP-5ELJ3LS;Initial Catalog=MusicDb;Integrated Security=True;"));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
